@@ -1,0 +1,74 @@
+/* Basic Instagram-like profile styles */
+/* Desktop-first profile layout */
+.profile-root{
+  max-width:1100px;
+  margin:28px auto;
+  font-family:var(--font,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto);
+  color:#111;
+  padding:0 12px;
+}
+
+.profile-header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:14px 8px;
+  border-bottom:1px solid #eee;
+  background:#fff;
+  position:sticky;
+  top:0;
+  z-index:5;
+}
+.profile-header .title{font-weight:700}
+
+/* Top area: avatar + meta laid out horizontally on desktop */
+.profile-top{
+  display:grid;
+  grid-template-columns:260px 1fr;
+  gap:28px;
+  padding:28px 12px;
+  align-items:start;
+}
+.avatar{
+  width:160px;
+  height:160px;
+  border-radius:50%;
+  background:linear-gradient(45deg,#f0932b,#eb4d4b);
+  box-shadow:0 6px 18px rgba(0,0,0,0.12);
+}
+.meta{flex:1}
+
+.stats{display:flex;gap:36px;margin-bottom:16px;align-items:center}
+.stats div{display:flex;flex-direction:column;align-items:center}
+.stats strong{font-size:18px}
+.stats .label{font-size:13px;color:#666;margin-top:4px}
+
+.bio .name{font-weight:700}
+.bio .desc{margin-top:8px;color:#333}
+.bio .link{color:#385185;margin-top:8px}
+.edit{margin-top:14px;padding:8px 16px;border-radius:8px;border:1px solid #ddd;background:#fff}
+
+.highlights{display:flex;gap:18px;padding:14px 8px;overflow:auto;background:linear-gradient(180deg,#fff,#fafafa)}
+.highlight{display:flex;flex-direction:column;align-items:center;min-width:88px}
+.h-avatar{width:80px;height:80px;border-radius:50%;background:#e8e8e8}
+.h-label{font-size:13px;margin-top:8px;color:#444}
+
+.posts-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;padding:18px;background:#fff}
+.post-tile{background:linear-gradient(135deg,#e0eafc,#cfdef3);height:260px;display:flex;align-items:center;justify-content:center;color:#333;border-radius:6px;overflow:hidden}
+.post-tile:hover{transform:translateY(-4px);box-shadow:0 8px 24px rgba(0,0,0,0.12);transition:all .18s ease}
+
+/* Smaller screens: fall back to compact layout */
+@media (max-width:900px){
+  .profile-root{max-width:900px}
+  .profile-top{display:flex;gap:16px;padding:18px 12px;align-items:flex-start}
+  .avatar{width:120px;height:120px}
+  .stats{gap:20px;margin-bottom:12px}
+  .posts-grid{grid-template-columns:repeat(3,1fr);gap:6px;padding:12px}
+  .post-tile{height:140px}
+}
+
+@media (max-width:600px){
+  .avatar{width:88px;height:88px}
+  .posts-grid{grid-template-columns:repeat(3,1fr);gap:4px}
+  .post-tile{height:110px}
+}
