@@ -1,45 +1,16 @@
-import './Profile.css'
+import ProImg from '../assets/ProImg.JPEG'
 
-export default function Profile() {
+function Profile() {
   return (
-    <div className="profile-root">
-      <header className="profile-header">
-        <button className="back">◀</button>
-        <h2 className="title">username_here</h2>
-        <button className="menu">☰</button>
-      </header>
-
-      <section className="profile-top">
-        <div className="avatar" />
-        <div className="meta">
-          <div className="stats">
-            <div><strong>24</strong><div className="label">posts</div></div>
-            <div><strong>5.2k</strong><div className="label">followers</div></div>
-            <div><strong>420</strong><div className="label">following</div></div>
-          </div>
-          <div className="bio">
-            <div className="name">Full Name</div>
-            <div className="desc">Photographer • Traveler • Coffee lover</div>
-            <div className="link">example.com</div>
-            <button className="edit">Edit profile</button>
-          </div>
-        </div>
-      </section>
-
-      <section className="highlights">
-        {Array.from({ length: 6 }).map((_, i) => (
-          <div key={i} className="highlight">
-            <div className="h-avatar" />
-            <div className="h-label">Story {i + 1}</div>
-          </div>
-        ))}
-      </section>
-
-      <section className="posts-grid">
-        {Array.from({ length: 12 }).map((_, i) => (
-          <div key={i} className="post-tile">Post {i + 1}</div>
-        ))}
-      </section>
+    <div className='flex justify-center'>
+      <div className='flex flex-row rounded-full mt-20 ml-20 '>
+        <img src={ProImg} alt="Profile" className=' w-72 h-72 object-cover rounded-full'/>
+        <p>Amir Reza Azemati</p>
+        <button className='w-fit h-10 ml-10 bg-blue-500 text-white px-4 py-2 rounded-lg'>download CV</button>
+        <button className='w-fit h-10 ml-10 bg-blue-500 text-white px-4 py-2 rounded-lg justify-center items-center'>Massage</button>
+      </div>
     </div>
   )
 }
+
+export default Profile

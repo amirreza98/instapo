@@ -4,10 +4,11 @@ import Profile from './Profile/Profile';
 
 function App() {
   return (
-    <>
+    <div className='flex flex-row h-screen w-screen overflow-hidden'>
       <Navbar />
-      <div>Instapo App</div>
-    </>
+      <Profile />
+      
+    </div>
   )
 }
 
