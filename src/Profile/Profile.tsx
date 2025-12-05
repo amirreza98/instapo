@@ -10,10 +10,10 @@ import Gallery from './components/Gallery'
 
 function Profile() {
   return (
-    <div className='flex flex-col w-full p-12 bg-blue-300'>
+    <div className='flex flex-col w-full h-fit p-12 bg-blue-300'>
       
       {/* Profile Section */}
-      <div className='flex flex-row justify-evenly bg-amber-300 w-full'>
+      <div className='flex flex-row justify-evenly bg-amber-300 w-full h-full'>
         {/* Profile Image */}
         <img src={ProImg} alt="Profile" className=' w-72 h-72 object-cover rounded-full'/>
 

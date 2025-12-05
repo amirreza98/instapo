@@ -1,31 +1,31 @@
-import { AnimatePresence } from "motion/react"
+import { AnimatePresence, easeIn, easeOut } from "motion/react"
 import * as motion from "motion/react-client"
 import { useState } from "react"
+import tabContents from "./index"
 
 export default function Gallery() {
     const [selectedTab, setSelectedTab] = useState(tabs[0])
 
     return (
-        <div className="flex flex-col w-full justify-center items-center">
-            <nav>
-                <ul className="flex flex-row space-x-40 bg-amber-500">
+        <div className="flex flex-col w-full bg-white/30 justify-center items-center">
+            <nav className="w-full">
+                <ul className="flex flex-row w-full justify-evenly">
                     {tabs.map((item) => (
                         <motion.li
                             key={item.label}
-                            initial={false}
+                            initial={{ y:-15, opacity:0, fontWeight: 400, fontSize: "1rem", borderTop: "none" }}
                             animate={{
-                                backgroundColor:
-                                    item === selectedTab ? "#eee" : "#eee0",
+                                y: 0,
+                                opacity: 1,
+                                fontWeight: item === selectedTab ? 600 : 400,
+                                fontSize: item === selectedTab ? "1.1rem" : "1rem",
+                                borderTop: item === selectedTab ? "4px solid black" : "none",
                             }}
+                            transition={{ type: "spring", stiffness: 300, damping: 30, ease: easeOut }}
+                            className="p-10 cursor-pointer py-3 justify-center"
                             onClick={() => setSelectedTab(item)}
                         >
                             {`${item.icon} ${item.label}`}
-                            {item === selectedTab ? (
-                                <motion.div
-                                    layoutId="underline"
-                                    id="underline"
-                                />
-                            ) : null}
                         </motion.li>
                     ))}
                 </ul>
@@ -34,12 +34,16 @@ export default function Gallery() {
                 <AnimatePresence mode="wait">
                     <motion.div
                         key={selectedTab ? selectedTab.label : "empty"}
-                        initial={{ y: 10, opacity: 0 }}
+                        initial={{ y: -10, opacity: 0 }}
                         animate={{ y: 0, opacity: 1 }}
                         exit={{ y: -10, opacity: 0 }}
                         transition={{ duration: 0.2 }}
+                        className="grid grid-cols-3"
                     >
-                        {selectedTab ? selectedTab.icon : "😋"}
+                    {tabContents.map((content) => (
+                        <div key={content} className="p-10">
+                            
+                    ))}
                     </motion.div>
                 </AnimatePresence>
             </main>
@@ -53,14 +57,16 @@ export default function Gallery() {
  */
 
 const allIngredients = [
-    { icon: "🍅", label: "Tomato" },
-    { icon: "🥬", label: "Lettuce" },
-    { icon: "🧀", label: "Cheese" },
-    { icon: "🥕", label: "Carrot" },
-    { icon: "🍌", label: "Banana" },
-    { icon: "🫐", label: "Blueberries" },
-    { icon: "🥂", label: "Champers?" },
+    { icon: "📂​", label: "Project" },
+    { icon: "📄​", label: "Certificates" },
+    { icon: "👤​", label: "AboutMe" },
 ]
 
-const [tomato, lettuce, cheese] = allIngredients
-const tabs = [tomato, lettuce, cheese]
+const [Project, Certificates, AboutMe] = allIngredients
+const tabs = [Project, Certificates, AboutMe]
+
+const tabContents = {
+    [Project.label]: "📂​ Projects Content",
+    [Certificates.label]: "📄​ Certificates Content",
+    [AboutMe.label]: "👤​ AboutMe Content",
+}
