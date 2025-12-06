@@ -10,15 +10,15 @@ import Gallery from './components/Gallery'
 
 function Profile() {
   return (
-    <div className='flex flex-col w-full h-fit p-12 bg-blue-300'>
+    <div className='flex flex-col w-full h-fit p-12'>
       
       {/* Profile Section */}
-      <div className='flex flex-row justify-evenly bg-amber-300 w-full h-full'>
+      <div className='flex flex-row justify-evenly w-full h-full'>
         {/* Profile Image */}
         <img src={ProImg} alt="Profile" className=' w-72 h-72 object-cover rounded-full'/>
 
         {/* Profile Info */}
-        <div className='flex-col h-fit ml-10 gap-5 text-2xl bg-blue-900'>
+        <div className='flex-col h-fit ml-10 gap-5 text-2xl'>
           <div className='flex flex-row items-center mt-16 space-x-4'>
             <p className='font-bold'>Amir Reza Azemati</p>
             <button className='w-56 h-10 bg-black text-white rounded-lg'>download CV</button>
@@ -42,7 +42,7 @@ function Profile() {
         </div>
       </div>
       {/* Highlights section */}
-      <div className='flex flex-row bg-amber-700 w-full mt-5 h-fit overflow-x-scroll space-x-5'>
+      <div className='flex flex-row  w-full mt-5 h-fit overflow-x-scroll space-x-5'>
         <img src={img1} alt="Highlight1" className=' w-24 h-24 object-cover rounded-full border-4 border-pink-500'/>
         <img src={img2} alt="Highlight2" className=' w-24 h-24 object-cover rounded-full border-4 border-pink-500'/>
         <img src={img3} alt="Highlight3" className=' w-24 h-24 object-cover rounded-full border-4 border-pink-500'/> 
@@ -52,9 +52,9 @@ function Profile() {
         <img src={img7} alt="Highlight7" className=' w-24 h-24 object-cover rounded-full border-4 border-pink-500'/>
       </div>
       {/* Line */}
-      <div className='border-b-2 border-gray-400 w-full mt-5'></div>
+      <div className='border-b-2 w-full mt-5'></div>
       {/* Gallery Section */}
-      <div className='w-full mt-2'>
+      <div className='w-full'>
         <Gallery />
       </div>
     </div>
