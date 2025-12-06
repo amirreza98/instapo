@@ -1,12 +1,15 @@
+import { Link } from 'react-router-dom'; // 👈 استفاده از Link
+
 function Navbar() {
   return (
-    <div className='flex flex-col items-center p-5 border-r h-screen'>
-        <h1 className='pb-28'>Instapo</h1>
+    <div className='flex flex-col items-center p-5 border-r h-screen w-60'> 
+        <h1 className='pb-28 text-3xl font-bold'>Instapo</h1>
         <div className='flex flex-col gap-10 text-lg'>
-            <a href="#home">Home</a>
-            <a href="#explore">Explore</a>
-            <a href="#massage">Messages</a>
-            <a href="#profile">Profile</a>
+            <Link to="/">Profile</Link> 
+            <Link to="/explore">Explore</Link>
+            <Link to="/AI">AI</Link>
+            <Link to="/Game">Game</Link>
+            <Link to="/messages">Messages</Link> 
         </div>
     </div>
   )
